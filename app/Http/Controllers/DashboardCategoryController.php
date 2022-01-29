@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AdminUser;
-use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class DashboardUserController extends Controller
+class DashboardCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class DashboardUserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index',[
-            'users' => User::all()
+        return view('admin.categories.index', [
+            'categories' => Category::all()
         ]);
     }
 
@@ -44,35 +43,33 @@ class DashboardUserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AdminUser  $adminUser
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(AdminUser $adminUser)
+    public function show(Category $category)
     {
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AdminUser  $adminUser
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Category $category)
     {
-        return view('admin.users.edit', [
-            'user' => $user,
-        ]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AdminUser  $adminUser
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdminUser $adminUser)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -80,13 +77,11 @@ class DashboardUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AdminUser  $adminUser
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Category $category)
     {
-        User::destroy($user->id);
-
-        return redirect('/admin/users')->with('success', 'Post Telah Dihapus');
+        //
     }
 }

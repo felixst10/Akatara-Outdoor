@@ -18,9 +18,10 @@ class CreateBerandasTable extends Migration
             $table->string('title');
             $table->foreignId('category_id');
             $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->text('excerpt');
             $table->text('body');
-            $table->timestamp('pulished at')->nullable();
+            $table->timestamp('published at')->nullable();
             $table->timestamps();
         });
     }

@@ -8,9 +8,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('admin/posts') ? 'active' : '' }}" href="/admin/posts">
+          <a class="nav-link {{ Request::is('admin/posts*') ? 'active' : '' }}" href="/admin/posts">
             <span data-feather="file"></span>
             Posts
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('admin/categories*') ? 'active' : '' }}" href="/admin/categories">
+            <span data-feather="folder-plus"></span>
+            Category
           </a>
         </li>
         <li class="nav-item">

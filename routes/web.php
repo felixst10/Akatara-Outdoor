@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardCategoryController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -52,12 +53,17 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/admin', [DashboardAdminController::class, 'admin'])->middleware('auth');
+
 
 
 //admin
-Route::resource('/admin/posts', DashboardPostController::class)->middleware('auth');
-Route::resource('/admin/users', DashboardUserController::class)->middleware('auth');
+Route::group(['middleware'=> ['checkAuth']], function() {
+    Route::get('/admin', [DashboardAdminController::class, 'admin']);
+    Route::get('/admin/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
+    Route::resource('/admin/posts', DashboardPostController::class);
+    Route::resource('/admin/users', DashboardUserController::class);
+    Route::resource('/admin/categories', DashboardCategoryController::class)->except('show');
+});
 
 
 

@@ -6,4 +6,7 @@
 <h3>{{ $name }}</h3>
 <p>{{ $email }}</p>
 <p>{{ $nomor }}</p>
+<small class="d-block mt-5 text-muted text-center">&copy; 2021 | Akatara Outdoor</small>
 @endsection
+
+
